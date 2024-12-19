@@ -22,7 +22,7 @@ const g = new Graph()
 g.addVertex("A")
 g.addVertex("B")
 g.addVertex("C")
-g.addEdge("A","B")
+g.addEdge("a","b")
 g.addEdge("A","C")
 g.addEdge("C","B")
 console.log(g);
