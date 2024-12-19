@@ -45,28 +45,25 @@ class Tree{
         }
     }
 
-    includes(value){
 
-        if (this.root==null){
-            return undefined
+    delete(value , temp = this.root){
+
+        if(temp == null){
+            return null
         }
-        let temp = this.root
-
-        while(temp){
-            if(value==temp.data){
-                return true
-            }else if(value > temp.data){
-                temp = temp.right
-            }else if(value<temp.data){
-                temp = temp.left
+      
+        if(value>temp.data){
+            temp.right = this.delete(value,temp.right)
+        }else if(value<temp.data){
+            temp.left = this.delete(value,temp.left)
+        }
+        else{
+            console.log("reciverd");
+            if(temp.left==null && temp.right == null){
+                return null
             }
         }
-
-        return false
-
     }
-
-
 }
 
 
@@ -75,7 +72,12 @@ class Tree{
 const tree = new Tree()
 tree.insert(20)
 tree.insert(30)
+tree.insert(25)
+tree.insert(35)
+tree.insert(32)
+tree.insert(36)
 tree.insert(10)
+tree.insert(11)
 tree.insert(8)
-console.log(tree.includes(10));
+tree.delete(36)
 console.log(tree)
