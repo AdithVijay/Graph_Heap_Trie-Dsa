@@ -62,6 +62,14 @@ class Tree{
             if(temp.left==null && temp.right == null){
                 return null
             }
+            else if(temp.left==null){
+                return temp.right
+            }else if(temp.right==null){
+                return temp.left
+            }
+            else{
+                
+            }
         }
     }
 }
@@ -75,9 +83,8 @@ tree.insert(30)
 tree.insert(25)
 tree.insert(35)
 tree.insert(32)
-tree.insert(36)
 tree.insert(10)
 tree.insert(11)
 tree.insert(8)
-tree.delete(36)
+tree.delete(32)
 console.log(tree)
