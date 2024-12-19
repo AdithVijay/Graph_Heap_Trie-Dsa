@@ -67,13 +67,22 @@ class Tree{
             }else if(temp.right==null){
                 return temp.left
             }
-            else{
-                
+            else{   
+               let minNode = this.findMin(temp.right)
+                temp.data = minNode.data
+                temp.right = this.delete(temp.data,temp.right)
             }
         }
+        return temp
+    }
+
+    findMin(temp){
+        while(!temp.left){
+            temp = temp.left
+        }
+        return temp
     }
 }
-
 
 
 
