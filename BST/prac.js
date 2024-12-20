@@ -25,7 +25,6 @@ class Tree{
             if(newNode.data == temp.data){
                 return
             }
-
             if(newNode.data>temp.data){
                 if(temp.right==null){
                     temp.right = newNode
@@ -51,7 +50,6 @@ class Tree{
         let current = this.root
 
         while(current){
-
             if(value>current.data){
                 current = current.right
             }else if (value<current.data){
@@ -59,14 +57,12 @@ class Tree{
             }else{
                 return true
             }
-
         }
-
         return false
 
     }
 
-    
+
 
 
 }   
