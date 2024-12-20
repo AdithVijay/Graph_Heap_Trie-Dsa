@@ -41,7 +41,35 @@ class Tree{
             }
         }
     }
-}
+
+
+    includes(value){
+        if(this.root ==null){
+            return
+        }
+
+        let current = this.root
+
+        while(current){
+
+            if(value>current.data){
+                current = current.right
+            }else if (value<current.data){
+                current = current.left
+            }else{
+                return true
+            }
+
+        }
+
+        return false
+
+    }
+
+    
+
+
+}   
 
 const tree = new Tree()
 tree.insert(10)
@@ -51,4 +79,5 @@ tree.insert(4)
 tree.insert(6)
 tree.insert(22)
 tree.insert(16)
+console.log(tree.includes(16))
 console.log(tree);
