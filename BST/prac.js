@@ -62,7 +62,37 @@ class Tree{
 
     }
 
+    delete(value,temp = this.root){
+        if(temp == null){
+            return
+        }
 
+        if(value > temp.data){
+            temp.right = this.delete(value,temp.right)
+        }else if(value < temp.data){
+            temp.left = this.delete(value,temp.left)
+        }else{
+            if(temp.left==null && temp.right ==null){
+                return null
+            }
+           else if(temp.left==null){
+                return temp.right
+            }else if(temp.right==null){
+                return temp.left
+            }else{
+                let minnode = this.findMin(temp.right)
+                temp.data = minnode.data
+                temp.right = this.delete(temp.data,temp.right)
+            }
+        }
+        return temp
+    }
+
+    findMin(temp){
+        while(temp.left!=null){
+            temp = temp.left
+        }
+    }
 
 
 }   
@@ -75,5 +105,6 @@ tree.insert(4)
 tree.insert(6)
 tree.insert(22)
 tree.insert(16)
+tree.delete(16)
 console.log(tree.includes(16))
 console.log(tree);

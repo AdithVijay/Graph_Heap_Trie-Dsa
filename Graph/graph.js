@@ -19,8 +19,7 @@ class Graph{
 
     }
 
-
-    bfs(start){
+   bfs(start){
         let queue = [start]
         let result = []
         let visited = []
@@ -40,10 +39,6 @@ class Graph{
         }
         return result;
     }
-
-
-
-
 }
 const graph = new Graph()
 graph.addVertex('A')
