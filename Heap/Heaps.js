@@ -42,8 +42,8 @@ class Heap {
   
         if (this.heap[largeChildIndex] <= this.heap[index]) break;
   
-        this.swap(index, largeChildIndex);
-        index = largeChildIndex;
+        this.swap(index, largeChildIndex)
+        index = largeChildIndex
       }
     }
   
