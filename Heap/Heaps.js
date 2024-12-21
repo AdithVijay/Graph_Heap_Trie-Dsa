@@ -36,11 +36,8 @@ class Heap {
       while (this.getLeftChild(index) < this.heap.length) {
         let largeChildIndex = this.getLeftChild(index);
   
-        if (
-          this.getRightChild(index) < this.heap.length &&
-          this.heap[this.getRightChild(index)] > this.heap[largeChildIndex]
-        ) {
-          largeChildIndex = this.getRightChild(index);
+        if (this.getRightChild(index) < this.heap.length && this.heap[this.getRightChild(index)] > this.heap[largeChildIndex]) {
+          largeChildIndex = this.getRightChild(index)
         }
   
         if (this.heap[largeChildIndex] <= this.heap[index]) break;

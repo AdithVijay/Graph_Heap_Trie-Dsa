@@ -18,7 +18,7 @@ class Heap{
     heapifyUp(){
         let index = this.heap.length-1
 
-        while(index>0 && this.heap[index] > this.heap[this.getParent(index)]){
+        while(index>0 && this.heap[index] < this.heap[this.getParent(index)]){
             this.swap(index,this.getParent(index))
             index = this.getParent(index)
         }
