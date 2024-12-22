@@ -6,7 +6,7 @@ class Heap {
     getParentIndex(childIndex) {
       return Math.floor((childIndex - 1) / 2);
     }
-  
+
     getLeftChild(parentIndex) {
       return 2 * parentIndex + 1;
     }
