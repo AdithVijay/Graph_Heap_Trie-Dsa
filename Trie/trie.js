@@ -33,24 +33,34 @@ class Trie{
         return newNode.isEnd
     }
 
-    produce(word){
-        let newNode = this.root
-        let arr = []
-        for(let char of word){
-            if(!newNode.childrenNode[char]){
-                return false
+    autocomplete(prefix) {
+        let newNode = this.root;
+        // Traverse to the node corresponding to the prefix
+        for (let char of prefix) {
+            if (!newNode.childrenNode[char]) {
+                return []; // Prefix not found
             }
-            arr.push(newNode.childrenNode[char])
-            newNode = newNode.childrenNode[char]
+            newNode = newNode.childrenNode[char];
         }
-        return arr
-        return newNode.childrenNode
-    }
+        // Helper function to collect all words from the current node
+        const words = [];
+        const collectWords = (node, path) => {
+            if (node.isEnd) {
+                words.push(path); // Add the word to the list
+            }
+            for (let char in node.childrenNode) {
+                collectWords(node.childrenNode[char], path + char);
+            }
+        };
 
+        // Collect words starting from the prefix node
+        collectWords(newNode, prefix);
+        return words;
+    }
 }
 
 const trie = new Trie()
 trie.insert('hel')
-console.log(trie.produce('he'))
+
 // console.log(trie.search("hel"))
 // console.dir(trie,{depth:null})
