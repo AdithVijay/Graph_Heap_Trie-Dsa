@@ -1,7 +1,7 @@
 class TrieNode{
     constructor(){
         this.children = {}
-        isEndoFword = false
+        this.isEndoFword = false
     }
 }
 
@@ -11,6 +11,17 @@ class Trie{
     }
 
     insert(word){
-        
+        let newNode = this.root
+        for(let char of word){
+            if(!newNode.children[char]){
+                newNode.children[char] = new TrieNode()
+            }
+            newNode = newNode.children[char]
+        }       
+        newNode.isEndoFword = true
     }
 }
+
+const trie = new Trie()
+trie.insert('helo')
+console.dir(trie,{depth:null})
