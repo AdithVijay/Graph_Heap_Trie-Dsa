@@ -48,7 +48,7 @@ class Heap {
     }
   
     remove(value) {
-      let index = this.heap.indexOf(value);
+      let index = this.heap.indexOf(value)
       if (index === -1) return null;
   
       let lastElement = this.heap.pop();
