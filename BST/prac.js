@@ -97,4 +97,5 @@ t.insert(22)
 t.insert(2)
 t.insert(3)
 t.delete()
+console.log(t.search(10));
 console.dir(t)
