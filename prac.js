@@ -34,25 +34,39 @@ class Heap{
     }   
 
     remov(){
+        if(this.heap.length==0){
+            return
+        }
         let lastElemnt = this.heap.pop()
+        const root =  this.heap[0]
         this.heap[0] = lastElemnt
-        let index = this.heap[0]
+        let index = 0
         this.heapyfyDown(index)
+        return root
     }
 
     heapyfyDown(index){
         while(this.getLeftChld(index) < this.heap.length ){
             let largest = this.getLeftChld(index)
 
-            if(this.heap[this.getrightChld[index]] >this.heap.length && this.heap[this.getrightChld[index]] >this.heap[this.getLeftChld[index]]){
-                let largest = this.getrightChld(index)
+            if(this.getrightChld(index) < this.heap.length && this.heap[this.getrightChld(index)] >this.heap[this.getLeftChld(index)]){
+             largest = this.getrightChld(index)
             }
 
             if(this.heap[index]>this.heap[largest]) break
-            
+
             this.swap(index,largest)
             index = largest
         }
+    }
+
+    heapSort(){
+        let arr= []
+        while(this.heap.length>0){
+            let data =this.remov()
+             arr.push( data)
+        }
+        return arr
     }
 }
 
@@ -61,5 +75,9 @@ h.insert(10)
 h.insert(20)
 h.insert(30)
 h.insert(40)
-h.remov()
+h.insert(60)
+h.insert(3)
+h.insert(20)
+console.log(h.heapSort())
+
 console.log(h);
