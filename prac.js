@@ -106,6 +106,15 @@ class Tree{
         return  result
     }
 
+    leastNode(){
+        let temp = this.root
+        let stack = []
+        while(temp.left!=null){
+            temp = temp.left
+            stack.push(temp.data)
+        }
+        return stack
+    }
 
 }
 
@@ -115,7 +124,7 @@ trree.insert(5)
 trree.insert(3)
 trree.insert(6)
 trree.insert(20)
-trree.delete(5)
-console.log("ksfafadf",trree.preorder());
+console.log("D",trree.leastNode());
+
 // console.log("sss",trree.bfs());
-// console.dir(trree,{depth:null})
+console.dir(trree,{depth:null})
