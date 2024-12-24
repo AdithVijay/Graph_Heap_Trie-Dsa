@@ -8,6 +8,12 @@ class Heap{
     }
 
     leftChildIndex(parentIndex){
-        return 
+        return 2*parentIndex+1 
     }
+
+    rightChildIndex(parentIndex){
+        return 2*parentIndex+2
+    }
+
+    
 }
