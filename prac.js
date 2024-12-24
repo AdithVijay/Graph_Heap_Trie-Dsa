@@ -44,16 +44,40 @@ class Tree{
 
 
     delete(data,temp = this.root){
-        if(temp==null){
-            return
+        console.log(data);
+        
+        if(temp == null){
+            return null
         }
 
         if(data >temp.data){
-            this.right = this.delete(data,this.right)
+            this.right = this.delete(data,temp.right)
         }else if(data<temp.data){
-            this.left = this.delete(data,this.left)
+            this.left = this.delete(data,temp.left)
+        }else{
+            if(temp.left==null && temp.right==null){
+                return null
+            }else if(temp.left==null ){
+                return temp.right
+            }else if(temp.right ==null){
+                return temp.left
+            }else{
+                let minNode = this.minnode(temp.right)
+                temp.data = minNode.data
+                temp.right = this.delete(temp.data,temp.right)
+            }
         }
     }
+
+    minnode(temp){
+        while( temp.left != null){
+            temp = temp.left
+        }
+        return temp
+    }
+
+
+    
 }
 
 const trree = new Tree()
@@ -62,4 +86,5 @@ trree.insert(5)
 trree.insert(3)
 trree.insert(6)
 trree.insert(20)
+trree.delete(5)
 console.dir(trree,{depth:null});
