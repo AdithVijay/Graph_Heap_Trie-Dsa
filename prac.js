@@ -44,8 +44,6 @@ class Tree{
 
 
     delete(data,temp = this.root){
-        console.log(data);
-        
         if(temp == null){
             return null
         }
@@ -76,8 +74,37 @@ class Tree{
         return temp
     }
 
+    bfs(){
+        let temp = this.root
+        let queue = []
+        let result = []
+        queue.push(temp)
+        
+        while(queue.length>0){
+            console.log(queue)
+            let current = queue.shift()
+            result.push(current.data)
 
-    
+            if(current.left){
+                queue.push(current.left)
+            }
+
+            if(current.right){
+                queue.push(current.right)
+            }
+        }
+        return result
+    }
+
+    preOrder(temp = this.root,result=[]){
+        if (temp == null) return result;
+        result.push(temp.data)
+        this.preOrder(temp.left,result)
+        this.preOrder(temp.right,result)
+        return result
+    }
+
+
 }
 
 const trree = new Tree()
@@ -87,4 +114,6 @@ trree.insert(3)
 trree.insert(6)
 trree.insert(20)
 trree.delete(5)
-console.dir(trree,{depth:null});
+console.log("ksfafadf",trree.preOrder());
+console.log("sss",trree.bfs());
+// console.dir(trree,{depth:null})
