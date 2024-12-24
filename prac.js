@@ -96,12 +96,14 @@ class Tree{
         return result
     }
 
-    preOrder(temp = this.root,result=[]){
-        if (temp == null) return result;
+    preorder(temp=this.root,result=[]){
+        if(temp==null){
+            return
+        }
+        this.preorder(temp.left,result)
+        this.preorder(temp.right,result)
         result.push(temp.data)
-        this.preOrder(temp.left,result)
-        this.preOrder(temp.right,result)
-        return result
+        return  result
     }
 
 
@@ -114,6 +116,6 @@ trree.insert(3)
 trree.insert(6)
 trree.insert(20)
 trree.delete(5)
-console.log("ksfafadf",trree.preOrder());
-console.log("sss",trree.bfs());
+console.log("ksfafadf",trree.preorder());
+// console.log("sss",trree.bfs());
 // console.dir(trree,{depth:null})
