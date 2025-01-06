@@ -99,3 +99,5 @@ t.insert(3)
 t.delete()
 console.log(t.search(10));
 console.dir(t)
+
+console.log("vijay")

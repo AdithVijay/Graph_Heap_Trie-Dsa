@@ -7,6 +7,7 @@ class Node{
 }
 
 
+
 class BinaryTree{
     constructor(){
         this.root = null
@@ -97,3 +98,5 @@ tree.insert(11)
 tree.insert(8)
 tree.delete(32)
 console.log(tree)
+
+console.log("adith");
